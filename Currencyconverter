@@ -1,0 +1,40 @@
+import java.util.Scanner;
+public class Currencyconverter {
+    public static void main(String[] args) {
+        // Exchange rates (as of 2024-02-08)
+        double usdToEurRate = 0.88;
+        double usdToGbpRate = 0.76;
+        double usdToInrRate = 74.39;
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Welcome to Currency Converter");
+        System.out.println("Supported currencies: EUR, GBP, INR");
+
+        System.out.print("Enter the amount in USD: ");
+        double amountInUSD = scanner.nextDouble();
+
+        System.out.print("Enter the target currency (EUR, GBP, INR): ");
+        String targetCurrency = scanner.next().toUpperCase();
+
+        double convertedAmount;
+        switch (targetCurrency) {
+            case "EUR":
+                convertedAmount = amountInUSD * usdToEurRate;
+                System.out.printf("%.2f USD is equal to %.2f EUR%n", amountInUSD, convertedAmount);
+                break;
+            case "GBP":
+                convertedAmount = amountInUSD * usdToGbpRate;
+                System.out.printf("%.2f USD is equal to %.2f GBP%n", amountInUSD, convertedAmount);
+                break;
+            case "INR":
+                convertedAmount = amountInUSD * usdToInrRate;
+                System.out.printf("%.2f USD is equal to %.2f INR%n", amountInUSD, convertedAmount);
+                break;
+            default:
+                System.out.println("Unsupported currency.");
+        }
+
+        scanner.close();
+    }
+}
